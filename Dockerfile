@@ -1,6 +1,8 @@
 FROM kalilinux/kali-rolling
 EXPOSE 8080
 RUN apt update -y  && \
+    apt install npm && \
+    npm install -g localtunnel
     apt install curl -y  && \
     apt install unrar -y  && \
     apt install unzip -y  && \
@@ -19,10 +21,6 @@ RUN apt update -y  && \
     mkdir /Essential-Files && \
     mkdir /voila && \
     mkdir /voila/files
-COPY Essential-Files /Essential-Files
-COPY Essential-Files/index.html /usr/index.html
-COPY Essential-Files/favicon.ico /voila/files/favicon.ico
-#RUN cp '/Essential-Files/jconf.py' '/conf/jupyter.py'
-#RUN cp '/Essential-Files/jpass.json' '/root/.jupyter/jupyter_notebook_config.json'
-RUN chmod +x /Essential-Files/entrypoint.sh
-CMD /Essential-Files/entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+CMD /entrypoint.sh
