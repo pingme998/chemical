@@ -2,7 +2,6 @@ FROM kalilinux/kali-rolling
 EXPOSE 8080
 RUN apt update -y  && \
     apt install npm && \
-    npm install -g localtunnel && \
     apt install curl -y  && \
     apt install unrar -y  && \
     apt install unzip -y  && \
@@ -18,9 +17,10 @@ RUN apt update -y  && \
     pip install voila && \
     pip install ipywidgets && \
     pip install widgetsnbextension && \
-    mkdir /Essential-Files && \
-    mkdir /voila && \
-    mkdir /voila/files
+#    mkdir /Essential-Files && \
+#    mkdir /voila && \
+#    mkdir /voila/files
+RUN npm install -g localtunnel
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 CMD /entrypoint.sh
