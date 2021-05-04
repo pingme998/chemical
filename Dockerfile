@@ -2,7 +2,7 @@ FROM kalilinux/kali-rolling
 EXPOSE 8080
 RUN apt update -y  && \
     apt install npm && \
-    npm install -g localtunnel
+    npm install -g localtunnel && \
     apt install curl -y  && \
     apt install unrar -y  && \
     apt install unzip -y  && \
