@@ -16,7 +16,7 @@ RUN apt update -y  && \
     pip install jupyter && \
     pip install voila && \
     pip install ipywidgets && \
-    pip install widgetsnbextension && \
+    pip install widgetsnbextension
 #    mkdir /Essential-Files && \
 #    mkdir /voila && \
 #    mkdir /voila/files
