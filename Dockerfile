@@ -1,7 +1,7 @@
 FROM kalilinux/kali-rolling
 EXPOSE 8080
 RUN apt update -y  && \
-    apt install npm && \
+    apt install npm -y && \
     apt install curl -y  && \
     apt install unrar -y  && \
     apt install unzip -y  && \
